@@ -5,14 +5,14 @@ import { Button } from '../../components/Button';
 
 import { styles } from './styles';
 
-interface Params {
+interface RouteParams {
   total: string;
   points: string;
 }
 
 export function Finish() {
   const route = useRoute();
-  const { points, total } = route.params as Params;
+  const { points, total } = route.params as RouteParams;
 
   const { navigate } = useNavigation();
 
@@ -20,16 +20,16 @@ export function Finish() {
     <View style={styles.container}>
       <View style={styles.message}>
         <Text style={styles.title}>
-          Parabéns!
+          Congratulations!
         </Text>
 
         <Text style={styles.subtitle}>
-          Você acertou {points} de {total} questões
+          You got {points} out of {total} questions right
         </Text>
       </View>
 
       <Button
-        title="Ir para o início"
+        title="Go to the homepage"
         onPress={() => navigate('home')}
       />
     </View>

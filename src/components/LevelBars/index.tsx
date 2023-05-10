@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 
 import { THEME } from '../../styles/theme';
+
 import { styles } from './styles';
 
 const LEVEL_COLORS = [
@@ -9,11 +10,11 @@ const LEVEL_COLORS = [
   THEME.COLORS.DANGER_LIGHT
 ];
 
-type Props = {
+type LevelBarsProps = {
   level: number;
 }
 
-export function LevelBars({ level }: Props) {
+export function LevelBars({ level }: LevelBarsProps) {
   const backgroundColor = LEVEL_COLORS[level - 1];
 
   return (

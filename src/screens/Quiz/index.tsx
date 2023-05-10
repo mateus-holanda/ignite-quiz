@@ -3,18 +3,19 @@ import { Alert, ScrollView, View } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { styles } from './styles';
-
-import { QUIZ } from '../../data/quiz';
-import { historyAdd } from '../../storage/quizHistoryStorage';
-
 import { Loading } from '../../components/Loading';
 import { Question } from '../../components/Question';
 import { QuizHeader } from '../../components/QuizHeader';
 import { ConfirmButton } from '../../components/ConfirmButton';
 import { OutlineButton } from '../../components/OutlineButton';
 
-interface Params {
+import { historyAdd } from '../../storage/quizHistoryStorage';
+
+import { QUIZ } from '../../data/quiz';
+
+import { styles } from './styles';
+
+interface RouteParams {
   id: string;
 }
 
@@ -30,12 +31,12 @@ export function Quiz() {
   const { navigate } = useNavigation();
 
   const route = useRoute();
-  const { id } = route.params as Params;
+  const { id } = route.params as RouteParams;
 
   function handleSkipConfirm() {
-    Alert.alert('Pular', 'Deseja realmente pular a questão?', [
-      { text: 'Sim', onPress: () => handleNextQuestion() },
-      { text: 'Não', onPress: () => { } }
+    Alert.alert('Skip', 'Do you want to skip this question?', [
+      { text: 'Yes', onPress: () => handleNextQuestion() },
+      { text: 'No', onPress: () => { } }
     ]);
   }
 
@@ -75,13 +76,13 @@ export function Quiz() {
   }
 
   function handleStop() {
-    Alert.alert('Parar', 'Deseja parar agora?', [
+    Alert.alert('Stop', 'Would you like to stop now?', [
       {
-        text: 'Não',
+        text: 'No',
         style: 'cancel',
       },
       {
-        text: 'Sim',
+        text: 'Yes',
         style: 'destructive',
         onPress: () => navigate('home')
       },
@@ -126,7 +127,7 @@ export function Quiz() {
         />
 
         <View style={styles.footer}>
-          <OutlineButton title="Parar" onPress={handleStop} />
+          <OutlineButton title="Stop" onPress={handleStop} />
           <ConfirmButton onPress={handleConfirm} />
         </View>
       </ScrollView>

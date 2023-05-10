@@ -1,16 +1,17 @@
 import { TouchableOpacity, TouchableOpacityProps, Text, View } from 'react-native';
 
-import { styles } from './styles';
-import { THEME } from '../../styles/theme';
-
 import { LevelBars } from '../LevelBars';
 import { QUIZZES } from '../../data/quizzes';
 
-type Props = TouchableOpacityProps & {
+import { THEME } from '../../styles/theme';
+
+import { styles } from './styles';
+
+interface QuizCardProps extends TouchableOpacityProps {
   data: typeof QUIZZES[0];
 }
 
-export function QuizCard({ data, ...rest }: Props) {
+export function QuizCard({ data, ...rest }: QuizCardProps) {
   const Icon = data.svg;
 
   return (

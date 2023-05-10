@@ -2,12 +2,12 @@ import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { styles } from './styles';
 
-type Props = TouchableOpacityProps & {
+interface OptionProps extends TouchableOpacityProps {
   checked: boolean;
   title: string;
 }
 
-export function Option({ checked, title, ...rest }: Props) {
+export function Option({ checked, title, ...rest }: OptionProps) {
   return (
     <TouchableOpacity
       style={

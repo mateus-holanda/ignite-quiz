@@ -3,12 +3,13 @@ import { useNavigation } from '@react-navigation/native';
 import { View, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { HouseLine } from 'phosphor-react-native';
 
+import { Loading } from '../../components/Loading';
 import { Header } from '../../components/Header';
 import { HistoryCard, HistoryProps } from '../../components/HistoryCard';
 
-import { styles } from './styles';
 import { historyGetAll, historyRemove } from '../../storage/quizHistoryStorage';
-import { Loading } from '../../components/Loading';
+
+import { styles } from './styles';
 
 export function History() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,13 +31,13 @@ export function History() {
 
   function handleRemove(id: string) {
     Alert.alert(
-      'Remover',
-      'Deseja remover esse registro?',
+      'Remove',
+      'Do you like to remove the results of this quiz?',
       [
         {
-          text: 'Sim', onPress: () => remove(id)
+          text: 'Yes', onPress: () => remove(id)
         },
-        { text: 'Não', style: 'cancel' }
+        { text: 'No', style: 'cancel' }
       ]
     );
 
@@ -53,8 +54,8 @@ export function History() {
   return (
     <View style={styles.container}>
       <Header
-        title="Histórico"
-        subtitle={`Seu histórico de estudos${'\n'}realizados`}
+        title="History"
+        subtitle={`Your history of quizzes${'\n'}completeds`}
         icon={HouseLine}
         onPress={goBack}
       />

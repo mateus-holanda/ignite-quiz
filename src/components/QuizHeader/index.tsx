@@ -4,13 +4,13 @@ import { ProgressBar } from '../ProgressBar';
 
 import { styles } from './styles';
 
-interface Props {
+interface QuizHeaderProps {
   title: string;
   totalOfQuestions: number;
   currentQuestion: number;
 }
 
-export function QuizHeader({ title, totalOfQuestions, currentQuestion }: Props) {
+export function QuizHeader({ title, totalOfQuestions, currentQuestion }: QuizHeaderProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -19,7 +19,7 @@ export function QuizHeader({ title, totalOfQuestions, currentQuestion }: Props) 
 
       <View style={styles.header}>
         <Text style={styles.question}>
-          Questão {currentQuestion}
+          Question {currentQuestion}
         </Text>
 
         <Text style={styles.length}>

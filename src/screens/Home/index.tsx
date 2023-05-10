@@ -7,8 +7,9 @@ import { Level } from '../../components/Level';
 import { Header } from '../../components/Header';
 import { QuizCard } from '../../components/QuizCard';
 
-import { styles } from './styles';
 import { QUIZZES } from '../../data/quizzes';
+
+import { styles } from './styles';
 
 export function Home() {
   const [quizzes, setQuizzes] = useState(QUIZZES);
@@ -36,15 +37,15 @@ export function Home() {
     <View style={styles.container}>
       <Header
         icon={Trophy}
-        title="Vamos estudar"
-        subtitle="Treine seus conhecimento"
+        title="Let's study"
+        subtitle="Test your knowledge"
         onPress={() => navigate('history')}
       />
 
       <View style={styles.levels}>
-        <Level title="Fácil" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={levels.includes(1)} />
-        <Level title="Médio" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={levels.includes(2)} />
-        <Level title="Difícil" type="HARD" onPress={() => handleLevelFilter(3)} isChecked={levels.includes(3)} />
+        <Level title="Easy" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={levels.includes(1)} />
+        <Level title="Intermediate" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={levels.includes(2)} />
+        <Level title="Difficult" type="HARD" onPress={() => handleLevelFilter(3)} isChecked={levels.includes(3)} />
       </View>
 
       <FlatList

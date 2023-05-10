@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+
 import { THEME } from '../../styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    width: 84,
+    width: 100,
     height: 35,
     borderRadius: 4,
     backgroundColor: 'transparent',
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
   title: {
     textTransform: 'uppercase',
     fontSize: 12,
-    fontFamily: THEME.FONTS.REGULAR,
+    fontFamily: THEME.FONTS.BOLD,
     color: 'white'
   }
 });

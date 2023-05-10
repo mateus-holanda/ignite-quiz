@@ -4,7 +4,7 @@ import { LevelBars } from '../LevelBars';
 
 import { styles } from './styles';
 
-export type HistoryProps = {
+export interface HistoryProps {
   id: string;
   title: string;
   points: number;
@@ -12,11 +12,11 @@ export type HistoryProps = {
   level: number;
 }
 
-type Props = {
+interface HistoryCardProps {
   data: HistoryProps;
 }
 
-export function HistoryCard({ data }: Props) {
+export function HistoryCard({ data }: HistoryCardProps) {
   return (
     <View style={styles.container}>
       <View>
@@ -25,7 +25,7 @@ export function HistoryCard({ data }: Props) {
         </Text>
 
         <Text style={styles.subtitle}>
-          Você acertou {data.points} de {data.questions}
+          You got {data.points} out of {data.questions} correct
         </Text>
       </View>
 

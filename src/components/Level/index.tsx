@@ -1,6 +1,7 @@
 import { TouchableOpacity, TouchableOpacityProps, Text, View } from 'react-native';
 
 import { THEME } from '../../styles/theme';
+
 import { styles } from './styles';
 
 const TYPE_COLORS = {
@@ -9,13 +10,13 @@ const TYPE_COLORS = {
   MEDIUM: THEME.COLORS.WARNING_LIGHT,
 }
 
-type Props = TouchableOpacityProps & {
+interface LevelProps extends TouchableOpacityProps {
   title: string;
   isChecked?: boolean;
   type?: keyof typeof TYPE_COLORS;
 }
 
-export function Level({ title, type = 'EASY', isChecked = false, ...rest }: Props) {
+export function Level({ title, type = 'EASY', isChecked = false, ...rest }: LevelProps) {
 
   const COLOR = TYPE_COLORS[type];
 
@@ -30,7 +31,7 @@ export function Level({ title, type = 'EASY', isChecked = false, ...rest }: Prop
         <Text style={
           [
             styles.title,
-            { color: isChecked ? THEME.COLORS.GREY_100 : COLOR }
+            { color: isChecked ? THEME.COLORS.GREY_700 : COLOR }
           ]}>
           {title}
         </Text>

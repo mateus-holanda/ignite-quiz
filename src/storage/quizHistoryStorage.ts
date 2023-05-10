@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { HistoryProps } from '../components/HistoryCard';
 import { Alert } from 'react-native';
 
-const HISTORY_COLLECTION = '@ignite_quiz:history';
+const HISTORY_COLLECTION = '@ignite-quiz:history';
 
 export async function historyGetAll() {
   try {
@@ -11,7 +11,7 @@ export async function historyGetAll() {
 
     return history;
   } catch (error) {
-    Alert.alert('Opa', 'Não foi possível obter o histórico.');
+    Alert.alert('Ooops.', "It wasn't possible to retrieve the history.");
 
     return [];
   }

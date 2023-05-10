@@ -1,9 +1,9 @@
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { THEME } from '../styles/theme';
-
 import { AppRoutes } from './app.routes';
+
+import { THEME } from '../styles/theme';
 
 export function Routes() {
   return (

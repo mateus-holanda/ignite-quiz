@@ -1,21 +1,28 @@
-import { CloudArrowUp, CodeSimple, ToggleLeft, PaintBucket, DeviceMobile, GitFork } from 'phosphor-react-native';
+import {
+  CloudArrowUp,
+  CodeSimple,
+  ToggleLeft,
+  PaintBucket,
+  DeviceMobile,
+  GitFork
+} from 'phosphor-react-native';
 
 export const QUIZZES = [
   {
     id: '1',
-    title: 'Utilizando Estados',
+    title: 'Using States',
     level: 1,
     svg: ToggleLeft,
   },
   {
     id: '2',
-    title: 'Utilizando Typescript',
+    title: 'Using Typescript',
     level: 2,
     svg: CodeSimple,
   },
   {
     id: '3',
-    title: 'Utilizando Navigation',
+    title: 'Using Navigation',
     level: 2,
     svg: GitFork,
   },

@@ -1,17 +1,18 @@
 import { Text, View, TouchableOpacity } from 'react-native';
-
-import { styles } from './styles';
-import { THEME } from '../../styles/theme';
 import { IconProps } from 'phosphor-react-native';
 
-type Props = {
+import { THEME } from '../../styles/theme';
+
+import { styles } from './styles';
+
+interface HeaderProps {
   title: string;
   subtitle: string;
   onPress: () => void;
   icon: React.FC<IconProps>;
 }
 
-export function Header({ title, subtitle, icon: Icon, onPress }: Props) {
+export function Header({ title, subtitle, icon: Icon, onPress }: HeaderProps) {
   return (
     <View style={styles.container}>
       <View>

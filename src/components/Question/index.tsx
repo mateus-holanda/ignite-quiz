@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 
 import { Option } from '../Option';
+
 import { styles } from './styles';
 
 type QuestionProps = {
