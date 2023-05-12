@@ -82,7 +82,7 @@ export const QUIZ = [
       {
         title: 'By typing routes, you have the advantage of knowing, at the moment of navigation, whether a route receives parameters or not and the format of the parameters.',
         alternatives: [
-          'True.',
+          'True',
           'False'
         ],
         correct: 0
