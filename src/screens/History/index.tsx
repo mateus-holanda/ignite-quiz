@@ -55,7 +55,7 @@ export function History() {
     <View style={styles.container}>
       <Header
         title="History"
-        subtitle={`Your history of quizzes${'\n'}completeds`}
+        subtitle={`Your history of completed${'\n'}quizzes`}
         icon={HouseLine}
         onPress={goBack}
       />
