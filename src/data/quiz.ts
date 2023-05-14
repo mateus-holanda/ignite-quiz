@@ -5,7 +5,7 @@ export const QUIZ = [
     level: 1,
     questions: [
       {
-        title: 'The Hooks are a way to work with functions in React instead of using classes. Hooks such as useState and useEffect are well-known examples of hooks. However, it is not yet possible to create our own hooks.',
+        title: 'Hooks are a way to work with functions in React instead of using classes. Hooks such as useState and useEffect are well-known examples of it. However, it is not yet possible to create our own hooks.',
         alternatives: [
           'True',
           'False'
