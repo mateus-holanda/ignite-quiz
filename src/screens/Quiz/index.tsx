@@ -21,6 +21,7 @@ import { QuizHeader } from '../../components/QuizHeader';
 import { ProgressBar } from '../../components/ProgressBar';
 import { ConfirmButton } from '../../components/ConfirmButton';
 import { OutlineButton } from '../../components/OutlineButton';
+import { OverlayFeedback } from '../../components/OverlayFeedback';
 
 import { historyAdd } from '../../storage/quizHistoryStorage';
 
@@ -33,6 +34,8 @@ interface RouteParams {
   id: string;
 }
 
+type StatusReplyProps = 'NEUTRAL' | 'CORRECT' | 'WRONG';
+
 type QuizProps = typeof QUIZ[0];
 
 const CARD_INCLINATION = 10;
@@ -40,6 +43,7 @@ const CARD_SKIP_AREA = -200;
 
 export function Quiz() {
   const [points, setPoints] = useState(0);
+  const [statusReply, setStatusReply] = useState<StatusReplyProps>('NEUTRAL');
   const [isLoading, setIsLoading] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [quiz, setQuiz] = useState<QuizProps>({} as QuizProps);
@@ -90,8 +94,11 @@ export function Quiz() {
     }
 
     if (quiz.questions[currentQuestion].correct === alternativeSelected) {
+      setStatusReply('CORRECT');
       setPoints(prevState => prevState + 1);
+      handleNextQuestion();
     } else {
+      setStatusReply('WRONG');
       shakeAnimation();
     }
 
@@ -117,7 +124,12 @@ export function Quiz() {
   function shakeAnimation() {
     shake.value = withSequence(
       withTiming(3, { duration: 400, easing: Easing.bounce }),
-      withTiming(0)
+      withTiming(0, undefined, (finished) => {
+        'worklet';
+        if (finished) {
+          runOnJS(handleNextQuestion)();
+        }
+      })
     );
   }
 
@@ -203,6 +215,8 @@ export function Quiz() {
 
   return (
     <View style={styles.container}>
+      <OverlayFeedback status={statusReply} />
+
       <Animated.View style={fixedProgressBarStyles}>
         <Text style={styles.title}>
           {quiz.title}
@@ -235,6 +249,7 @@ export function Quiz() {
               question={quiz.questions[currentQuestion]}
               alternativeSelected={alternativeSelected}
               setAlternativeSelected={setAlternativeSelected}
+              onUnmount={() => setStatusReply('NEUTRAL')}
             />
           </Animated.View>
         </GestureDetector>
